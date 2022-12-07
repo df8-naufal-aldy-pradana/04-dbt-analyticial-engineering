@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_location
+    description: This model cleans up location data
+    columns:
+      - name: pickup_location_id
+        tests:
+          - not_null
+      - name: dropoff_location_id
+        tests:
+          - not_null
+
+  - name: stg_payment
+    description: This model cleans up payment data
+  
+  - name: stg_time
+    description:  This model cleans up time data
+
+  - name: stg_trip
+    description: This model cleans up trip data
