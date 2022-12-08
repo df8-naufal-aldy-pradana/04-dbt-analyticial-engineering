@@ -10,7 +10,7 @@ Bonus if you also create the dbt documentation.
 https://www.kaggle.com/datasets/microize/newyork-yellow-taxi-trip-data-2020-2019?resource=download
 
 ## Docs
-    ![dbt docs](./docs/dbt-docs.png)
+![](docs/dbt_docs.png)
 
 ### Run Docs
 dbt docs generate
