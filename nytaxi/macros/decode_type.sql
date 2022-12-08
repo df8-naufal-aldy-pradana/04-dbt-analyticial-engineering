@@ -1,6 +1,6 @@
 -- {#  This macro decode categorical columns to its actual description #}
 
-{% macro decode_payment(payment_type) -%}
+{% macro decode_payment_type(payment_type) -%}
 
     case {{ payment_type }}
         when 1 then 'Credit card'
