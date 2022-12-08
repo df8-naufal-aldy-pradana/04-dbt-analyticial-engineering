@@ -9,6 +9,30 @@ sources:
       - name: taxi_zone_lookup_raw
         identifier: taxi_zone_lookup_raw
 models:
+  - name: dim_payment
+    description: Dimension table to lookup payment type
+    
+  - name: dim_rate_code
+    description: Dimension table to lookup name of rate code based from the id
+    columns:
+      - name: rate_code_id
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6]
+              quote: false
+  
+  - name: dim_vendor
+    description: Dimension table to lookup name of vendor
+    columns:
+      - name: vendor_id
+        tests:
+          - accepted_values:
+              values: [1, 2]
+              quote: false
+
+  - name: dim_zone
+    description: Dimension table to look name of zone
+
   - name: fact_trips
     description: Fact table for the trip bussiness case
     columns: 
@@ -23,6 +47,10 @@ models:
       - name: VendorID
         description:  "code indicating the TPEP provider that provided the record.
         1= Creative Mobile Technologies, LLC; 2= VeriFone Inc."
+        tests:
+          - accepted_values:
+              values: [1, 2]
+              quote: false
       
       - name: tpep_pickup_datetime 
         description: The date and time when the meter was engaged.
@@ -50,13 +78,15 @@ models:
         ---- 4=Nassau or Westchester
         ---- 5=Negotiated fare
         ---- 6=Group ride"  
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6, 99]
+              quote: false
 
       - name: store_and_fwd_flag 
         description: "This flag indicates whether the trip record was held in vehicle
-        memory before sending to the vendor, aka “store and forward,”
-        because the vehicle did not have a connection to the server.
-        ---- Y= store and forward trip
-        ---- N= not a store and forward trip"
+        memory before sending to the vendor, aka “store and forward,
+        because the vehicle did not have a connection to the server."
 
       - name: payment_type 
         description: "A numeric code signifying how the passenger paid for the trip.
@@ -66,6 +96,10 @@ models:
                   ---- 4= Dispute
                   ---- 5= Unknown
                   ---- 6= Voided trip"
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6]
+              quote: false
 
       - name: Fare_amount 
         description: The time-and-distance fare calculated by the meter.

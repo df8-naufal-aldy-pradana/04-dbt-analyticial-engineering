@@ -12,5 +12,7 @@ from
     stg_rate_code
 where
     rate_code_id is not null
+    and
+    rate_code_id != 99
 order by
     rate_code_id asc

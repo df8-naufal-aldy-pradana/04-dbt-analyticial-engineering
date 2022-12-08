@@ -1,6 +1,6 @@
 with yellow_tripdata as (
-    select 
-        {{ dbt_utils.generate_surrogate_key(['VendorId', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'PULocationID', 'DOLocationID']) }} as trip_id,
+    select distinct
+        {{ dbt_utils.generate_surrogate_key(['VendorId', 'tpep_pickup_datetime', 'tpep_dropoff_datetime']) }} as trip_id,
         VendorId as vendor_id,
         tpep_pickup_datetime as pickup_datetime,
         tpep_dropoff_datetime as dropoff_datetime,
