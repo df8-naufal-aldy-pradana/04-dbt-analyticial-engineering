@@ -1,21 +1,20 @@
 version: 2
 
+sources:
+  - name: nytaxi
+    schema: nytaxi
+    tables:
+      - name: yellow_tripdata_raw
+        identifier: yellow_tripdata_raw
 models:
-  - name: stg_location
+  - name: stg_zone
     description: This model cleans up location data
-    columns:
-      - name: pickup_location_id
-        tests:
-          - not_null
-      - name: dropoff_location_id
-        tests:
-          - not_null
 
-  - name: stg_payment
-    description: This model cleans up payment data
+  - name: stg_trip
+    description: This model cleans up trip data
   
   - name: stg_time
     description:  This model cleans up time data
 
-  - name: stg_trip
-    description: This model cleans up trip data
+  - name: stg_taxi
+    description: This model cleans up taxi data

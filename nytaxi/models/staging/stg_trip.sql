@@ -1,8 +1,12 @@
-select
-    VendorID as vendor_id,
-    passenger_count,
-    trip_distance,
-    RatecodeID as rate_code_id,
+select 
+    payment_type,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    improvement_surcharge,
+    total_amount,
 
-from 
-    `data-fellowship-8.nytaxi.yellow_trip_data_raw`
+from
+    {{ source('nytaxi', 'yellow_tripdata_raw') }}
