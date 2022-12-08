@@ -1,0 +1,14 @@
+version: 2
+
+macros:
+  - name: decode_rate_code
+    arguments:
+      - name: rate_code_id
+        type: column name
+        description: The name of rate code from the id
+  
+  - name: decode_vendor_id
+    arguments:
+      - name: vendor_id
+        type: column_name
+        description: The name of the vendor from the id
