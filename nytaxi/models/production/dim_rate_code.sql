@@ -12,7 +12,5 @@ from
     stg_rate_code
 where
     rate_code_id is not null
-    and 
-    rate_code_id between 1 and 6
 order by
     rate_code_id asc

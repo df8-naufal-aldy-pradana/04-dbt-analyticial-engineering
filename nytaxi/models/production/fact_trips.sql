@@ -19,10 +19,6 @@ with yellow_tripdata as (
         total_amount,
     from 
         {{ ref('stg_yellow_tripdata') }}
-    where 
-        VendorID = 1 
-        or 
-        VendorID = 2
 )
 
 select *
